@@ -8,6 +8,7 @@ import org.keycloak.common.Profile;
 import org.keycloak.models.AuthenticationExecutionModel;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
+import org.keycloak.models.UserCredentialModel;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 
@@ -28,12 +29,12 @@ public class SpnegoChopperAuthenticatorFactory implements AuthenticatorFactory {
 
     @Override
     public String getDisplayType() {
-        return "Kerberos";
+        return "Kerberos Chopper";
     }
 
     @Override
     public String getReferenceCategory() {
-        return "Kerberos SPNEGO Chopper";
+        return UserCredentialModel.KERBEROS;
     }
 
     @Override

@@ -15,7 +15,7 @@ docker run --rm -it -p 8080:8080 -v ./target:/opt/keycloak/providers \
 
 1. Create a copy of the Browser flow.
 2. Remove the original Kerberos action.
-3. Add the Kerberos action from this extension. Look for "... and optionally chops of bytes from the token." in the help text.
+3. Add the `Kerberos Chopper` action from this extension.
 4. Configure it (gear icon); adjust the number of bytes to chop off.
 5. Voila.
 

@@ -8,7 +8,6 @@ import org.keycloak.common.Profile;
 import org.keycloak.models.AuthenticationExecutionModel;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
-import org.keycloak.models.UserCredentialModel;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 
@@ -34,7 +33,7 @@ public class SpnegoChopperAuthenticatorFactory implements AuthenticatorFactory {
 
     @Override
     public String getReferenceCategory() {
-        return UserCredentialModel.KERBEROS;
+        return "Kerberos SPNEGO Chopper";
     }
 
     @Override
@@ -55,7 +54,7 @@ public class SpnegoChopperAuthenticatorFactory implements AuthenticatorFactory {
     @Override
     public String getHelpText() {
         return isKerberosFeatureEnabled()
-                ? "Initiates the SPNEGO protocol.  Most often used with Kerberos."
+                ? "Initiates the SPNEGO protocol, and optionally chops of bytes from the token. Most often used with Kerberos."
                 : "DISABLED. Please enable Kerberos feature and make sure Kerberos available in your platform. Initiates the SPNEGO protocol. Most often used with Kerberos.";
     }
 
@@ -66,7 +65,7 @@ public class SpnegoChopperAuthenticatorFactory implements AuthenticatorFactory {
                 .property("numberOfBytesToChopOff",
                           "Bytes to chop off",
                         "How many bytes should be chopped off (from the beginning)",
-                        ProviderConfigProperty.STRING_TYPE, "1", options)
+                        ProviderConfigProperty.STRING_TYPE, "20", options)
                 .build();
     }
 
